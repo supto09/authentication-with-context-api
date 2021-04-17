@@ -38,17 +38,8 @@ export const AuthProvider = ({children}: Props) => {
     // if user exists we can do additional authorization check for example refresh authorization token
     useEffect(() => {
         const user: User | null = readUserFromStorage()
-
-        if (user == null) {
-            setLoadingInitial(false)
-        } else {
-
-            // mocking a authorization check
-            setTimeout(() => {
-                setUser(user)
-                setLoadingInitial(false)
-            }, 500); // mocking validation
-        }
+        setUser(user)
+        setLoadingInitial(false)
     }, []);
 
 
